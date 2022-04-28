@@ -105,6 +105,11 @@ get_wd_ptn(wd_mtrx[wd_count][MAX_LEN])
                         increment ptn_count
                     else
                         int_mtrx[word_id][position] = int_mtrx[word_id - 1][position]
+                    }
+                }
+            }
+        }
+    }
     reallocate ptn to size = ptn_count * sizeof(*ptn)
     return ptn
 }
