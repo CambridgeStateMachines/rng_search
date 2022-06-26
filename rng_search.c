@@ -101,7 +101,7 @@ void proc_wd(unsigned char *txt, int fsz, PTN *ptn, int *lens, IDR *hits)
 {
     int txt_pos = 0, curr_sta = 0, wd_pos, curr_ptn, prev_ptn;
     while (txt_pos < fsz) {
-        while (!ptn[tolower(txt[txt_pos])].sta) txt_pos++;
+        while (txt_pos < fsz && !ptn[tolower(txt[txt_pos])].sta) txt_pos++;
         wd_pos = 1;
         while (1) {
             if (wd_pos == 1) {
@@ -346,8 +346,8 @@ int proc_2()
 
 int main()
 {
-    if (proc_1()) return 1; //generate ptn from dictionary (with optional saving of ptn.dat and lens.dat)
-    //if (proc_2()) return 1; //load pre-saved ptn and lens from files (requires ptn.dat and lens.dat)
+    //if (proc_1()) return 1; //generate ptn from dictionary (with optional saving of ptn.dat and lens.dat)
+    if (proc_2()) return 1; //load pre-saved ptn and lens from files (requires ptn.dat and lens.dat)
     getchar();
     return 0;
 }
